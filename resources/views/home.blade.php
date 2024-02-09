@@ -8,7 +8,62 @@
 </head>
 <body>
     
-    <h1>Testing 123!!!</h1>
 
+    @auth
+       <p>Congs You ARe Logged In</p> 
+
+       <form action="/logout" method="POST">
+        @csrf
+
+       <button> Logout </button> 
+    
+        </form>
+
+        <div style="border: 3px solid black">
+            <h2>Create a post</h2>
+
+            <form action="/create-post" method="POST">
+            <input type="text" name="title" placeholder="Blog title">
+            <br> <br>
+            <textarea name="body" placeholder="body content..."></textarea>
+            <br> <br> 
+            <button>Save Post</button>
+            <br> <br>
+            </form>
+            
+        </div>
+           
+    @else
+    <div style="border: 3px solid black">
+        <h2>Register</h2>
+            <form action="/register" method="POST">
+                @csrf
+                <input type="text" placeholder="name" name="name">
+                <input type="text" placeholder="email" name="email">
+                <input type="password" placeholder="password" name="password">
+                <br> <br>
+            <button>Register</button>
+            <br>
+            <br>
+            </form>
+    </div>
+    <br>
+    <div style="border: 3px solid black">
+        <h2>Log In</h2>
+            <form action="/login" method="POST">
+                @csrf
+                <input type="text" placeholder="name" name="loginname">
+                {{-- <input type="text" placeholder="email" name="email"> --}}
+                <input type="password" placeholder="password" name="loginpassword">
+                <br> <br>
+            <button>Log in</button>
+            <br>
+            <br>
+            </form>
+    </div>
+
+    @endauth
+
+    
 </body>
 </html>
