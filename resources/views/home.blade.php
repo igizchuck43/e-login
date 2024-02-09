@@ -23,14 +23,27 @@
             <h2>Create a post</h2>
 
             <form action="/create-post" method="POST">
-            <input type="text" name="title" placeholder="Blog title">
-            <br> <br>
-            <textarea name="body" placeholder="body content..."></textarea>
-            <br> <br> 
-            <button>Save Post</button>
-            <br> <br>
+             @csrf
+                <input type="text" name="title" placeholder="Blog title">
+                <br> <br>
+                <textarea name="body" placeholder="body content..."></textarea>
+                <br> <br> 
+                <button>Save Post</button>
+                <br> <br>
             </form>
             
+        </div>
+
+        <div style="border: 3px solid black">
+            <h2>My Post</h2>
+            @foreach ($posts as $post)
+                <div style="background-color: gray; margin:10px; padding:10px">
+                    <h3>{{$post['title']}}</h3>
+                    {{$post['body']}}
+                </div>
+               
+
+            @endforeach
         </div>
            
     @else
