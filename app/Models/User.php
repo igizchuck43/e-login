@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     // Relationshp with Post
 
-    public function posts()
+    public function usersPosts()
     {
         return $this->hasMany(Post::class, 'user_id', );
     }

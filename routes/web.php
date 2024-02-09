@@ -20,8 +20,9 @@ Route::get('/', function () {
 
     //Post from database
 
+    // $posts=auth()->user()->usersPosts()->latest()->get();
     // $posts= Post::all();
-    $posts= Post::where('user_id', auth()->user()->id)->get;
+    $posts= Post::where('user_id', auth()->user()->id)->get();
     return view('home', ['posts'=>$posts]);
 });
 
